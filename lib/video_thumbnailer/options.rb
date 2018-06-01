@@ -39,6 +39,10 @@ module VideoThumbnailer
       end
     end
 
+    def scale value
+      %Q(-filter:v scale="#{value}")
+    end
+
     def method_missing(name, *args)
       "#{CLI_KEY[name]} #{args[0]}" if CLI_KEY.has_key? name
     end
